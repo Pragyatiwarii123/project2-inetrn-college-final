@@ -3,7 +3,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 
 
-const internModel = new mongoose.Schema(
+const internSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim:true },
     email:  { type: String,required:true, unique: true},
@@ -16,5 +16,5 @@ const internModel = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Intern", internModel);
+module.exports = mongoose.model("Intern", internSchema);
 

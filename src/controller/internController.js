@@ -28,16 +28,19 @@ const createIntern = async function (req, res) {
         if (!isValid(name)) {
             return res.status(400).send({ status: false, message: "Intern Name is required...!" });
         }
+
         const mobileData = req.body.mobile
 
         if (!isValid(mobileData)) {
             return res.status(400).send({ status: false, message: "Mobile Number is required...!" });
         }
+
         const convertToNumberMobileData = Number(mobileData)
 
         if (convertToNumberMobileData == NaN) {
             return res.status(400).send({ status: false, message: "Please enter a valid mobile number" })
         }
+        
         const mobileNo = mobileData.toString();
         
         if (mobileNo.length != 10) {

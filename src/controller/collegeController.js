@@ -19,14 +19,11 @@ const createCollege = async function (req, res) {
 
     try {
         const requestBody = req.body
-        const isDeleted = req.body.isDeleted
 
         if (!isValidRequestBody(requestBody)) {
             return res.status(400).send({ status: false, message: "Please provide college details" })
         }
-        if (typeof isDeleted != "boolean") {
-            return res.status(400).send({ status: false, message: "isDeleted must be true or false" })
-        }
+        
 
         //extract params
         const { name, fullName, logoLink } = requestBody
@@ -34,8 +31,6 @@ const createCollege = async function (req, res) {
         if (!isValid(name)) {
             return res.status(400).send({ status: false, message: "Name is required...!" });
         }
-
-        
 
         if (!isValid(fullName)) {
             return res.status(400).send({ status: false, message: "Full name is required....!" });
